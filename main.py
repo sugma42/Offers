@@ -8,6 +8,9 @@ import logging
 
 from dotenv import load_dotenv
 
+# ⬇️⬇️⬇️ ВОТ ЭТО ГЛАВНОЕ ИЗМЕНЕНИЕ: load_dotenv() вызывается ДО импорта admin
+load_dotenv()
+
 from aiogram import Bot, Dispatcher, F
 from aiogram.client.default import DefaultBotProperties
 from aiogram.enums import ParseMode
@@ -24,7 +27,6 @@ from admin import (
 )
 from ton_watcher import start_watcher
 
-load_dotenv()
 logging.basicConfig(level=logging.INFO)
 
 BOT_TOKEN = os.getenv("BOT_TOKEN", "")
